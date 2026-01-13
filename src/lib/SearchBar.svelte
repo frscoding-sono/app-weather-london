@@ -14,68 +14,60 @@
   <input
     type="text"
     bind:value={currentCity}
-    on:keydown={(e) => e.key === "Enter" && handleSearch()}
-    placeholder="Enter a city name..."
+    on:keydown={(e) => e.key === 'Enter' && handleSearch()}
+    placeholder="Enter City Designation..."
     class="search-input"
   />
-  <button on:click={handleSearch} class="search-button">Search</button>
+  <button on:click={handleSearch} class="search-button">ANALYZE</button>
 </div>
 
 <style>
   .search-container {
     display: flex;
-    gap: 0.5rem;
     width: 100%;
-    max-width: 500px; /* Consistent max-width */
-    margin: 0 auto; /* Center the search bar */
+    max-width: 500px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    box-shadow: 5px 5px 10px #111, -5px -5px 10px #333;
   }
 
   .search-input {
     flex-grow: 1;
-    padding: 0.75rem 1rem;
     border: none;
-    border-radius: 50px;
+    background: transparent;
+    padding: 1rem 1.5rem;
     font-size: 1rem;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    color: var(--color-text);
+    border-radius: 50px 0 0 50px;
     outline: none;
   }
 
-  .search-input:focus {
-    background-color: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  .search-input::placeholder {
+    color: rgba(245, 245, 245, 0.5);
   }
 
   .search-button {
-    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 50px;
-    background-color: #ff3e6c;
-    color: white;
+    border-radius: 0 50px 50px 0;
+    background-color: var(--color-primary);
+    color: #1a1a1a;
+    font-family: var(--font-family-heading);
     font-size: 1rem;
     font-weight: bold;
+    padding: 1rem 2rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(255, 62, 108, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 
+      0 0 10px var(--color-primary),
+      inset 0 0 5px rgba(255, 255, 255, 0.5);
   }
 
   .search-button:hover {
-    background-color: #ff1a53;
-    transform: translateY(-2px);
-  }
-
-  /* Media Query for smaller screens */
-  @media (max-width: 480px) {
-    .search-container {
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .search-input,
-    .search-button {
-      width: 100%;
-      border-radius: 25px; /* Slightly smaller radius for a sleeker look */
-    }
+    background-color: var(--color-accent);
+    color: #1a1a1a;
+    box-shadow: 
+      0 0 20px var(--color-accent),
+      inset 0 0 10px rgba(255, 255, 255, 0.7);
+    transform: scale(1.05);
   }
 </style>
